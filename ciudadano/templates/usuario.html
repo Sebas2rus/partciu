@@ -1,0 +1,39 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block title %} Usuario {% endblock title %}
+
+{% block content %}
+
+{% if request.user.is_authenticated%}
+<div class="row " style="width:100vw">
+    <div class ="col-4" >    
+        <a href="{% url 'usuario' request.user.username %}"><img src=" {% static 'images/cat.jpg' %}" style="position:absolute;top:160px; left:143px" width=150px height=150px class="rounded-circle border-rigth border-dark"> </a>
+        <div style="background-color:#c1c1c1; height:18vh; width:443px"></div>
+        
+        <div  class=" text-center" style="padding: 4em 1em">
+        {% for usuario in usuarios %}                
+        <h3> {{usuario.username}}</h3>    
+        <p>{{usuario.email}}</p>        
+        <ul class="list-group">            
+            <a class="btn my-1 mx-5 border border-dark" href="{% url 'usuario_sondeo' request.user.username %}" >Sondeos</a>
+            <a class="btn my-1 mx-5 border border-dark" href="{% url 'usuario_pregunta' request.user.username %}" >Preguntas</a>
+            <a class="btn my-1 mx-5 border border-dark" href="{% url 'sondeos_contestados' request.user.username %}" >Sondeos contestados</a>
+            <a class="btn my-1 mx-5 border border-dark" href="{% url 'validar' %}" >Validar sondeo</a>
+        </ul>
+        {% endfor %}
+        </div>
+    </div>
+    <div class ="col-8">
+        {% block usercontent %}
+
+        {% endblock %}
+
+    </div>
+</div>
+{% else %}
+    <h3>Debe autenticarse antes de continuar</h3>
+{% endif %}
+
+{% endblock content %}
+

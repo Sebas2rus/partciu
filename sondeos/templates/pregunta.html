@@ -1,0 +1,19 @@
+{% extends 'body.html' %}
+
+{% block title %}Preguntas{% endblock title %}
+
+{% block content %}
+    <p>This is the page of ¡¡ Questions !!</p>
+    {% for pregunta in preguntas %}    
+    <h2> {{pregunta.pregunta}}</h2>
+    
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn-submit">Completar</button>   
+        </form>
+    </div>
+    
+    {% endfor %}
+{% endblock content %}

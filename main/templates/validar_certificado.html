@@ -1,0 +1,41 @@
+{% extends 'body.html' %}
+
+{% block title %} Validar{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <h2 class="m-4">Validar un certificado de participación</h2>
+    <div class="col-6">
+        <div class=" container w-50 my-5">      
+            <form class="  m-auto" method="post" >
+                {% csrf_token %}
+                <label for="" class="form-label">Radicado certificado</label>
+                <input type="number" class="form-control" name="id_certificado" id="" aria-describedby="helpId" placeholder="Radicado certificado">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="" aria-describedby="helpId" placeholder="Nombre">
+                <label for="" class="form-label">Número de identificación</label>
+                <input type="number" class="form-control mb-3" name="documento" id="" aria-describedby="helpId" placeholder="Número de identificación">
+                <button type="submit" class="btn-submit  " >Validar certificado</button>
+            </form>
+    
+        </div>
+    </div>
+    <div class="col-6">
+        {% if request.method == "GET" %}
+        {% elif sondeos %}
+            {% for usuario in usuarios %}
+                {{usuario.documento}}
+                {{apellido}}
+                {% if usuario.nombre == nombre or usuario.documento == documento %}
+                    <p>Certificado válido</p>
+                {% else %}
+                    <p>Certificado inválido</p>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No se encuentra ningun certificado que coincida con la descripción</p>
+        {% endif %}
+    </div>
+    <p class="text-center mt-3">**Si desea descargar su certificado debe acceder al apartado usuario donde podrá descargarlo**</p>
+</div>
+{% endblock content %}

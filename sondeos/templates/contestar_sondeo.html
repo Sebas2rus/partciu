@@ -1,0 +1,66 @@
+{% extends 'body.html' %}
+{% load index %}
+{% load bootstrap5 %}
+
+{% block title%} Responder sondeo {% endblock %}
+
+{% block content %}
+    {% for sondeo in sondeos %}
+    <div class="row">
+    <div class="col-4">
+        <div class="w-75 m-auto">
+            <p>{{sondeo.nombre_s}}</p>
+            <img src="{{sondeo.imagen.url}}" width=100%>
+            <p>{{sondeo.descripcion_s}}</p>
+            <p>{{sondeo.fecha_publicacion_s}}</p>
+            <p>{{sondeo.fecha_cierre_s}}</p>
+            <p>Preguntas: </p>    
+                <p>{{sondeo.id_parametro}}</p>
+                
+        
+        </div>
+    </div>
+    <div class="col-8">
+        <form class="w-75 m-auto" method="post" id="miFormulario">
+            {% csrf_token %}
+            {% for pregunta in sondeo.id_pregunta.all %}              
+            <p>
+                <div class="mb-3">
+                  <label for="" class="form-label">{{pregunta}} </label>                                                      
+                  <textarea class="form-control" name="{{item|index:forloop.counter}}" id="" rows="3"></textarea>
+                </div>
+            </p>            
+            {% endfor %}</p>
+                        
+            <button onclick="confirmar()" type="submit" class="btn-submit"  >Completar</button>   
+        </form>        
+    </div>
+    </div>
+
+    
+    
+    {% endfor %}
+{% endblock%}
+
+{% block js %}
+<script>
+    function confirmar(){
+        event.preventDefault();
+        Swal.fire({
+            title: 'Confirmación',
+            text: "Desea completar el formulario",
+            showCancelButton: true,
+            confirmButtonText: 'Si, confirmar',
+            denyButtonText: 'No, regresar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            document.getElementById("miFormulario").submit();                       
+            }else{
+                Swal.fire('Caso no guardado', '', 'info')
+           }
+       });
+      
+
+    }
+</script>
+{% endblock js %}

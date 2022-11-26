@@ -1,0 +1,25 @@
+{%extends 'body.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+
+{% block title %}Registrarse{% endblock %}
+    
+
+{% block content%}
+<!-- Principal -->
+    <div class="iniciar-sesion ">  
+        <h2>Registrarse</h2>            
+        <form action="" method="post" class="signup-form">
+        {% csrf_token %}    
+            {{ form.as_p}}
+            <button type="submit" class="btn-submit">Registrarse</button>                        
+        </form>
+        <br>
+        <p>Ya estás registrado?, inicia sesión <a href="{% url 'login' %}" onclick="left()" >Aquí</a></p>        
+    </div>
+
+
+{% endblock %}

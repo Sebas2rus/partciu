@@ -1,0 +1,23 @@
+{% extends 'body.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Busquedas
+{% endblock title %}
+
+{% block content %}
+
+
+
+{% if encontrados %}
+<h2>Resultados encontrados para "{{buscar}}"</h2>
+{% include 'sondeoCard.html' %}
+{% else %}
+<h2>Resultados <strong>NO</strong> encontrados para "{{buscar}}", quizás te pueda interesar: </h2>
+{% include 'sondeoCard.html' %}
+{% endif %}
+
+
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% load bootstrap5 %}
+{% bootstrap_css%}
+
+<div style="width:50%; margin:auto; text-align:center">
+    <h2 style="margin-top:3em">Certificado de participación</h2>    
+    <p>Entregamos el presente a: </p>    
+    
+    {% for usuario in usuarios %}
+    <h1>{{usuario.nombre}} {{usuario.apellidos}}</h1>
+    {% endfor %}    
+    {% for respuesta in respuestas %}
+    <p>Por participar y completar el sondeo: {{respuesta.sondeo.nombre_s}}</p>    
+    <p>El {{respuesta.fecha}}</p>
+    <p>Certificado de participación número: {{respuesta.id}}</p>
+    {% endfor %}
+    <br>
+    <hr style="width:50%; margin:auto">
+    <br>
+    
+</div>

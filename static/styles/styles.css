@@ -1,0 +1,130 @@
+
+:root{
+    --gold: #c0b283;
+    --silk: #dcd0c0;
+    --paper: #f4f4f4;
+    --charcoal: #373737;
+    --bordes: #94949467;
+    --azul: #175d9bd7;
+    --negro: #000000;
+    --bgHeader: #D9D6D2;    
+    --wine: #76323f;
+}
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+p{
+    color: #1f2622;
+}
+
+/* Dibujo del triangulo y animación slidein */
+#fondo.triangulo{    
+    width: 70vw;    
+    height: 100vh;    
+    border-bottom: 100vh solid #f3f3f3;
+    border-right: 10vw solid transparent;
+    animation: slidein 2s alternate cubic-bezier(0.42, 0, 0.11, 1.54);
+    
+}
+/* Dibujo del triangulo a la izquierda y animación slidein */
+#fondo.triangulo-left{    
+    width: 70vw;
+    height: 0vh;    
+    border-bottom: 100vh solid #f3f3f3;
+    border-left: 10vw solid transparent;
+    animation: slidein 2s alternate cubic-bezier(0.42, 0, 0.11, 1.54);
+    
+    
+}
+
+/* Animación de la pantalla  */
+
+@keyframes slidein {
+    from{
+        width: 100%;        
+        transform: scale(1,1);
+        opacity: 0;
+        color: #f3f3f3;
+    }    
+}
+
+/* Clase button submit que anima el boton de iniciar sesion y registrarse */
+.btn-submit{    
+    padding: .8em 4em;
+    display: flex;
+    margin: auto;
+    color: #fff;    
+    background-color: #0d6efd;
+    border-radius: .5em;    
+    border: 1px solid var(--bordes);
+}
+.btn-submit:hover{    
+    color: #ffffffc5;    
+    background-color: #0d65e9;    
+    cursor: pointer;
+}
+
+.iniciar-sesion{
+    position: relative;        
+    width: 40%;    
+    margin: 3em auto;        
+    padding: 1em 3em 1em 3em;           
+    border: solid 1px var(--bordes);
+    border-radius: 20px 1px;        
+    box-shadow: 5px 5px 10px var(--bordes);
+}
+.iniciar-sesion input{
+    width: 80%;
+    border: 1px solid var(--bordes);    
+    padding: .3em;
+}
+.iniciar-sesion-rigth input{
+    width: 80%;
+    border: 1px solid var(--bordes);    
+    padding: .5em;
+    margin-top: 1em;
+}
+.iniciar-sesion-rigth button{
+    margin: 1em auto ;
+}
+.iniciar-sesion p, h2{
+    margin-top: 0em;
+    text-align: center;
+}
+/* Sección de imagenes flotantes referentes al contacto */
+.contacto{
+    z-index: 100;    
+    position: fixed;
+    left: 30px;
+    bottom: 30px;    
+}
+
+.contacto i, .contacto-left i{
+    padding: 1em;    
+}
+.contacto a, .contacto-left a{
+    text-decoration: none;    
+    color: var(--negro);
+}
+.contacto i:hover, .contacto-left i:hover{
+    color:var(--azul);
+}
+/* Sección de imagenes flotantes referentes al contacto cuando está en la izquierda */
+.contacto-left{
+    z-index: 100;    
+    position: fixed;
+    right: 30px;
+    bottom: 30px;    
+}
+
+footer{
+    background-color: var(--bgHeader);
+    border-top: solid 1px var(--negro);
+    padding: 3em 1em 1em;
+    color: #fff;
+}
