@@ -1,16 +1,15 @@
 {% extends 'body.html' %}
+{% load bootstrap5 %}
 
 {% block title %}Preguntas{% endblock title %}
 
-{% block content %}
-    <p>This is the page of ¡¡ Questions !!</p>
-    {% for pregunta in preguntas %}    
-    <h2> {{pregunta.pregunta}}</h2>
-    
-    <div class="container">
+{% block content %}    
+    {% for pregunta in preguntas %}            
+    <div class="w-50 m-auto px-4 py-4 my-5" style="background-color: hsl(0, 0%, 100%, 0.8);" >
+        <h2> {{pregunta.pregunta}}</h2>
         <form method="post">
             {% csrf_token %}
-            {{form.as_p}}
+            {%bootstrap_form form%}
             <button type="submit" class="btn-submit">Completar</button>   
         </form>
     </div>

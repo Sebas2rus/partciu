@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from register.models import Datos_personales
 from .forms import RespuestaForm, respuesta_sondeoForm
 from django.contrib import messages
-from django.http import HttpResponse
+from django.utils import timezone
 
 # Create your views here.
 
@@ -77,4 +77,16 @@ def contestar_sondeo (request, id_sondeo=None):
     
         return render(request, 'contestar_sondeo.html', {"sondeos":sondeo, "item": item})
     
+def sondeos(request):
+    
+    sondeos = Sondeo.objects.all()
+    fecha_actual = timezone.now
+    return render(request, 'sondeos.html', { "sondeos":sondeos, "fecha_actual":fecha_actual})
+
+
+def temas(request):
+    
+    temas = Tema.objects.all()
+    fecha_actual = timezone.now
+    return render(request, 'temas.html', {'temas': temas, "fecha_actual":fecha_actual})
     

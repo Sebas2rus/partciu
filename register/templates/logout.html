@@ -1,5 +1,5 @@
 {%extends 'body.html' %}
-
+{% load static %}
     
 
 {% block title%}Registrarse{% endblock %}
@@ -7,9 +7,12 @@
 
 <!-- Dark mode -->
 {% block content %}
-
-<div class="triangulo-left" id="fondo">
-     <h1> Has cerrado sesios</h1>
+<br>
+<div class="w-50 m-auto" style="background-color :hsl(0, 0%, 100%, 0.8);" id="">     
+     <img src="{% static 'images/catedral.jpg'%}" width=100%>
+     <div class="bg-dark">
+     <p class="text-center p-3 px-5 "  style="background-color :hsl(0, 0%, 100%, 0.9); position:absolute; top:80%;left:40%">Vuelve a <a  class="btn btn-primary" href="{% url 'login' %}">Iniciar sesion</a></p>
+     </div>    
 </div>  
 
 {% endblock %}

@@ -3,6 +3,14 @@
 {% block title %}Preguntas{% endblock title %}
 
 {% block content %}
-    <p>Ya contestaste este formulario</p>
+    <div class="w-50 m-auto my-5" style="background-color: hsl(0, 0%, 100%, 0.8); height:60vh">
+
+        <h2 class="pt-5">Ya contestaste este formulario</h2>
+        <p class=" w-75 m-auto text-center">Los formularios solo pueden ser contestados una vez, previo a enviar su respuesta
+            siempre te ponemos al tanto; puedes ver mas</p>
+            <br>
+            <p class="w-50" style="position: absolute; top:62%; left:38%"><a class="btn btn-primary px-5 py-3"href="{% url 'sondeos' %}">Sondeos</a></p>            
+            <p class="w-50" style="position: absolute; top:62%; left:53%"><a class="btn btn-primary px-5 py-3" href="{% url 'sondeos' %}">Temas</a></p>
+    </div>
         
 {% endblock content %}

@@ -6,27 +6,25 @@
 
 {% block content %}
     {% for sondeo in sondeos %}
-    <div class="row">
-    <div class="col-4">
-        <div class="w-75 m-auto">
-            <p>{{sondeo.nombre_s}}</p>
-            <img src="{{sondeo.imagen.url}}" width=100%>
-            <p>{{sondeo.descripcion_s}}</p>
+    <div class="row mb-4">
+    <div class="col-5">
+        <h2 style="background-color:#76323f;color:white;" class="text-center pt-3 pb-2">{{sondeo.nombre_s}}</h2>
+        <div class="w-75 m-auto p-5"  style="background-color: hsl(0, 0%, 100%, 0.8);">            
+            <img src="{{sondeo.imagen.url}}" width=100% style="max-height:200px ">
+            <p class="mt-3">{{sondeo.descripcion_s}}</p>
+            <h5>Fecha de publicación:</h5>
             <p>{{sondeo.fecha_publicacion_s}}</p>
-            <p>{{sondeo.fecha_cierre_s}}</p>
-            <p>Preguntas: </p>    
-                <p>{{sondeo.id_parametro}}</p>
-                
-        
+            <h5>Fecha de cierre:</h5>
+            <p>{{sondeo.fecha_cierre_s}}</p>        
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-7">
         <form class="w-75 m-auto" method="post" id="miFormulario">
             {% csrf_token %}
             {% for pregunta in sondeo.id_pregunta.all %}              
             <p>
-                <div class="mb-3">
-                  <label for="" class="form-label">{{pregunta}} </label>                                                      
+                <div class="mb-3 px-3 py-5 rounded" style="background-color: hsl(0, 0%, 100%, 0.8);">
+                  <label for="" class="form-label ">{{pregunta}} </label>                                                      
                   <textarea class="form-control" name="{{item|index:forloop.counter}}" id="" rows="3"></textarea>
                 </div>
             </p>            

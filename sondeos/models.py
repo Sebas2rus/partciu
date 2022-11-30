@@ -17,7 +17,7 @@ class Tema (models.Model):
     
 class Respuesta (models.Model):
     pregunta = models.ForeignKey(Tema, on_delete=models.CASCADE)        
-    respuesta = models.TextField("Respuesta")
+    respuesta = models.TextField()
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now=True)
     

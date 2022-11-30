@@ -6,35 +6,32 @@
 
 {% block content %}
 
-<div class="container-fluid " style="">
-    <div class="row justify-content-center  align-items-center">
-        <div class="col-7  " style="background-color: rgb(0, 0, 0);">
-            
-            <img src = "{% static 'images/team.jpg' %}"  width="100%" alt="">
-            
-        </div>
-        <div class="col-5">        
-        <div class="align-justify">
-            <h1 class="text-center mx-5" style="color: #76323f;">Participación ciudadana</h1>
-            <p class="text-center  mx-5" style="color: #1f2622 ;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quibusdam deserunt nemo laboriosam ex ipsum porro similique mollitia at. Similique?</p>
-        </div>
-        <form class="d-flex w-75 m-auto " method="post" action="busqueda/">
-            {% csrf_token %}
-            <input class="form-control me-sm-2" type="text" name="buscar" placeholder="Buscar sondeos">
-            <button class="btn btn-outline-success my-2" type="submit">Buscar</button>
-        </form>
-    </div>        
-    
+<div class="  " style="height:70vh; padding-top:6em">
+    <div class="row justify-content-center rounded p-5 align-items-center w-50 m-auto"style="background-color :hsl(0, 0%, 87%, 0.8);">                        
+        <div class="align-justify" style=" opacity:1">
+            <h1 class="text-center " style="color:#76323f;">Participación ciudadana</h1>
+            <p class="text-center  " style="color: #000 ;">
+                Este aplicación web busca integrar los mecanismos de participación mediante un sitio web, mediante el cual;
+                personas mayores de edad y de todas las edades pueden contestar los diferentes sondeos de opinioón y 
+                participar en los diversos conversatorios o exposición de sus propias opiniones.
+            </p>        
+            <form class="d-flex w-75 m-auto " method="post" action="busqueda/">
+                {% csrf_token %}
+                <input class="form-control me-sm-2" type="text" name="buscar" placeholder="Buscar sondeos">
+                <button class="btn btn-primary my-2" type="submit">Buscar</button>
+            </form>
+        </div>        
     </div>
 </div>
 {% comment %} Contiene toda la informacion de las preguntas {% endcomment %}
 
 
-<div class=" row justify-content-center  align-items-center" >
-    <div class= "col-6">
-        <div class="align-middle text-center mx-2">
-            <h2 class="py-4">De que se trata preguntas y temas ?</h2>
-            <p> DEFINICIÓN DEL TEMA DE INVESTIGACIÓN
+<div class=" row justify-content-center   align-items-center" style="height:100vh">
+    <div class="col-1"></div>
+    <div class= "col-5 " >
+        <div class="align-middle text-center mx-2 " style="background-color :hsl(0, 0%, 100%, 0.8);">
+            <h2 class="px-4 pt-4">Temas, preguntas y conversatorios</h2>
+            <p class="p-4"> DEFINICIÓN DEL TEMA DE INVESTIGACIÓN
             DE UN INTERÉS A UN TEMA
             Comience por aquello que le interese mas profundamente
             
@@ -45,37 +42,42 @@
         </div>        
     </div>
     <div class= "col-6">
+        <div style="background-color:#76323f;" class="p-3"><h2 style="color:white">Preguntas mas recientes</h2></div>
         {% include 'preguntaCard.html' %}        
+        <p class="text-center"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'login' %}" type="submit" >Ver más...</a></p>
     </div>
-    <p class="text-center"><a class="btn px-4 ms-5" href="{% url 'login' %}" type="submit" style="border: solid 2px #76323f;">Ver más...</a></p>
+    
 </div>
 
 <br>
+<div class="" style="background-color:hsl(0, 0%, 100%, 0.9);">
+<h2 class="pt-5 pb-2">Sondeos mas recientes</h2>
 {% include 'sondeoCard.html' %}
+<p class="text-center"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'login' %}" type="submit" >Ver más...</a></p>
 <br>
-<div class="container-fluid" style="background-color: #013766; ">
-    <div class="container-fluid bg-light border py-4 m-0" style="border-radius: 0 10em 0 10em ">
-        <h2 style="color: #ac0e28; ">Sobre nosotros</h2>
-        <hr style="width:50%; margin:auto;">
-        <div class="row mx-5" style="font-family: curier-new">
-            <div class="col-1"></div>
-            <div class="col-4 pb-4 rounded my-3 px-3">
+
+</div>
+<div class="container" style=" ">
+    
+        <h2 style="background-color:#76323f; color:#fff; " class="p-3 mt-4">Sobre nosotros</h2>        
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1 border-bottom"></div>
+
+        <div class="row mx-5" style="font-family: serif">            
+            <div class="col   pb-4 rounded my-3 px-5" style=" background-color :hsl(0, 0%, 100%, 0.8);">
                 <p class="text-center"><img src="{% static 'images/cat.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
                 <div class="shadow-lg border rounded" style="padding:4em 1em 1em">
-                    <h3 class="text-center" style="font-family: curier-new">Mision</h3>
-                <p  style="font-family: curier-new" class="px-3">La misión empresarial es el conjunto de objetivos generales y principios de trabajos para avanzar en una organización, que se expresa por medio de una declaración de la misión, que resume la misión empresarial en una sola frase, con el objetivo de comunicar la misión a todos los miembros de la organización.</p>
+                    <h3 class="text-center" style="font-family: curier-new; ">Misión</h3>
+                <p  style="font-family: ;" class="px-3 ">La misión empresarial es el conjunto de objetivos generales y principios de trabajos para avanzar en una organización, que se expresa por medio de una declaración de la misión, que resume la misión empresarial en una sola frase, con el objetivo de comunicar la misión a todos los miembros de la organización.</p>
                 </div>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-4  pb-4 rounded my-3 px-3">
+            </div>  
+            <div class="col-2"></div>          
+            <div class="col   pb-4 rounded my-3 px-5" style="background-color :hsl(0, 0%, 100%, 0.8);">
                 <p class="text-center"><img src="{% static 'images/cat.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
                 <div class="shadow-lg border rounded" style="padding:4em 1em 1em">
                     <h3 class="text-center" style="font-family: curier-new">Visión</h3>
                 <p  style="font-family: curier-new" class="px-3">La misión empresarial es el conjunto de objetivos generales y principios de trabajos para avanzar en una organización, que se expresa por medio de una declaración de la misión, que resume la misión empresarial en una sola frase, con el objetivo de comunicar la misión a todos los miembros de la organización.</p>
                 </div>
-            </div>
-            <div class="col-1"></div>
-        </div>        
+            </div>                  
     </div>
 </div>
 
