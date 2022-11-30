@@ -19,7 +19,7 @@ def usuario (request, username= None):
 def usuario_sondeo(request, username = None):
     usuarios = User.objects.filter(username = request.user.username)
     sondeos = Sondeo.objects.all()[:4]
-    usuarioActual = Datos_personales.objects.filter(email=request.user.email)
+    usuarioActual = Datos_personales.objects.get(email=request.user.email)
     fecha_actual = timezone.now
     return render(request, 'usuarioSondeo.html', {"usuarios":usuarios,"sondeos": sondeos, "fecha_actual":fecha_actual, "usuarioActual": usuarioActual})
 

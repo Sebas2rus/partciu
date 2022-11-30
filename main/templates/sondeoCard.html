@@ -19,7 +19,7 @@
                           {% else %}
                           <a class="btn m-auto w-50" href="{% url 'login' %}" type="submit" style="border: solid 2px #76323f;">Contestar</a>
                           {% endif %}                                                    
-                          <a class="btn m-auto w-50 mt-1" href="{% url 'login' %}" type="submit" style="border: solid 2px #76323f;" >Estadisticas</a>
+                          <a class="btn m-auto w-50 mt-1" href="{% url 'estadisticas' sondeo.id %}" type="submit" style="border: solid 2px #76323f;" >Estadisticas</a>
             <div class="mt-2 card-footer text-muted">
               Creado {{sondeo.fecha_publicacion_s|naturaltime}}</small>
             </div>

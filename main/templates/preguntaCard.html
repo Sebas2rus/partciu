@@ -2,7 +2,7 @@
 
 <div class="my-4  " style="width:50vw;">
   {% for tema in temas%}
-    <div class="row bg-light p-4 my-2 rounded border border-dark mx-5">
+    <div class="row p-4 my-2 rounded border border-dark mx-5" style="background-color :hsl(0, 0%, 100%, 0.8);">
       <div class="col-8">
         <h5 style="text-align: left;">{{tema.pregunta}}</h5>
         <small style="text-align:left;">Creado: {{tema.fecha_creacion|naturaltime}}</small>
@@ -13,7 +13,7 @@
       {% else %}
         <a class="btn  btn-primary my-sm-0 px-4 mx-auto w-100" href="{% url 'login' %}" type="submit" style="">Contestar</a>
       {% endif %}
-      <a class="btn my-1 px-4 mx-auto w-100" href="{% url 'login' %}" type="submit" style="border: solid 2px #76323f;">Estadisticas</a>
+      <a class="btn my-1 px-4 mx-auto w-100" href="{% url 'estadisticasTema' tema.id %}" type="submit" style="border: solid 2px #76323f;">Estadisticas</a>
       </div>
     </div>
   {% endfor %}      

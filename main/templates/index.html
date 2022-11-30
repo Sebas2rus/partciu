@@ -31,20 +31,19 @@
     <div class= "col-5 " >
         <div class="align-middle text-center mx-2 " style="background-color :hsl(0, 0%, 100%, 0.8);">
             <h2 class="px-4 pt-4">Temas, preguntas y conversatorios</h2>
-            <p class="p-4"> DEFINICIÓN DEL TEMA DE INVESTIGACIÓN
-            DE UN INTERÉS A UN TEMA
-            Comience por aquello que le interese mas profundamente
-            
-            Comience enumerando cuatro a cinco áreas de las que le gustaría aprender
-            
-            Seleccione las que tenga mas potencial para desarrollar un tema que sea
+            <p class="pt-3 px-3"> 
+            Comience por aquello que le interese; responda y participe en los temas de su interes,
+            no se pueden registrar mas de una respuesta para cada una de las preguntas.            
             </p>    
+            <p class="pb-4 px-3">Contestando cada una de las preguntas nos ayudará a conocer diferentes puntos de visto,
+                esto es fundamental para un desarrollo óptimo de diferentes propuestas
+            </p>
         </div>        
     </div>
     <div class= "col-6">
-        <div style="background-color:#76323f;" class="p-3"><h2 style="color:white">Preguntas mas recientes</h2></div>
+        <div style="background-color:#76323f;"><h2 style="color:white">Preguntas mas recientes</h2></div>
         {% include 'preguntaCard.html' %}        
-        <p class="text-center"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'login' %}" type="submit" >Ver más...</a></p>
+        <p class="text-center p-3"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'temas' %}" type="submit" >Ver más...</a></p>
     </div>
     
 </div>
@@ -53,7 +52,7 @@
 <div class="" style="background-color:hsl(0, 0%, 100%, 0.9);">
 <h2 class="pt-5 pb-2">Sondeos mas recientes</h2>
 {% include 'sondeoCard.html' %}
-<p class="text-center"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'login' %}" type="submit" >Ver más...</a></p>
+<p class="text-center"><a class="btn btn-primary px-5 py-2 ms-5" href="{% url 'sondeos' %}" type="submit" >Ver más...</a></p>
 <br>
 
 </div>
@@ -64,18 +63,18 @@
 
         <div class="row mx-5" style="font-family: serif">            
             <div class="col   pb-4 rounded my-3 px-5" style=" background-color :hsl(0, 0%, 100%, 0.8);">
-                <p class="text-center"><img src="{% static 'images/cat.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
+                <p class="text-center"><img src="{% static 'images/nosotros.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
                 <div class="shadow-lg border rounded" style="padding:4em 1em 1em">
-                    <h3 class="text-center" style="font-family: curier-new; ">Misión</h3>
-                <p  style="font-family: ;" class="px-3 ">La misión empresarial es el conjunto de objetivos generales y principios de trabajos para avanzar en una organización, que se expresa por medio de una declaración de la misión, que resume la misión empresarial en una sola frase, con el objetivo de comunicar la misión a todos los miembros de la organización.</p>
+                    <h3 class="text-center" style="font-family: curier-new; color: #76323f ">Misión</h3>
+                <p  style="font-family: ;" class="px-3 "> Nuestra misión es ser la voz de los ciudadanos, permitirles un ambiente en el cual sus opiniones sean escuchadas y de conocimiento para todos</p>
                 </div>
             </div>  
             <div class="col-2"></div>          
             <div class="col   pb-4 rounded my-3 px-5" style="background-color :hsl(0, 0%, 100%, 0.8);">
-                <p class="text-center"><img src="{% static 'images/cat.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
+                <p class="text-center"><img src="{% static 'images/catedral.jpg' %}" width = 70% style="position:relative; top:3.5em; border-radius:1em" ></p>
                 <div class="shadow-lg border rounded" style="padding:4em 1em 1em">
-                    <h3 class="text-center" style="font-family: curier-new">Visión</h3>
-                <p  style="font-family: curier-new" class="px-3">La misión empresarial es el conjunto de objetivos generales y principios de trabajos para avanzar en una organización, que se expresa por medio de una declaración de la misión, que resume la misión empresarial en una sola frase, con el objetivo de comunicar la misión a todos los miembros de la organización.</p>
+                    <h3 class="text-center" style="font-family: curier-new; color: #76323f">Visión</h3>
+                <p  style="font-family: curier-new" class="px-3">Nuestra visión es conformar entre todos la Colombia que queremos, este no es sólo un sitio de encuestas; es un lugar para hablar sin miedo, para opinar y construir una Colombia diversa cultural y socialmente.</p>
                 </div>
             </div>                  
     </div>

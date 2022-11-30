@@ -16,10 +16,10 @@
         <h3> {{usuario.username}}</h3>    
         <p>{{usuario.email}}</p>        
         <ul class="list-group">            
-            <a class="btn my-1 mx-5 border border-dark" href="{% url 'usuario_sondeo' request.user.username %}" >Sondeos</a>
-            <a class="btn my-1 mx-5 border border-dark" href="{% url 'usuario_pregunta' request.user.username %}" >Preguntas</a>
-            <a class="btn my-1 mx-5 border border-dark" href="{% url 'sondeos_contestados' request.user.username %}" >Sondeos contestados</a>
-            <a class="btn my-1 mx-5 border border-dark" href="{% url 'validar' %}" >Validar sondeo</a>
+            <a class="btn my-1 mx-5 " style="border: solid 2px #76323f;" href="{% url 'usuario_sondeo' request.user.username %}" >Sondeos</a>
+            <a class="btn my-1 mx-5 btn-primary" href="{% url 'usuario_pregunta' request.user.username %}" >Preguntas</a>
+            <a class="btn my-1 mx-5 " style="border: solid 2px #76323f;" href="{% url 'sondeos_contestados' request.user.username %}" >Sondeos contestados</a>
+            <a class="btn my-1 mx-5 btn-primary" href="{% url 'validar' %}" >Validar sondeo</a>
         </ul>
         {% endfor %}
         </div>

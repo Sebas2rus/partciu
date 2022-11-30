@@ -48,3 +48,13 @@ def validar_certificado(request):
             return render (request, "validar_certificado.html")
     elif request.method =="GET":
         return render (request, "validar_certificado.html")
+    
+def estadisticas(request, id_sondeo=None):
+    respuestas = Respuesta_Sondeo.objects.filter(sondeo = id_sondeo).count()
+    sondeos = Sondeo.objects.get(id = id_sondeo)
+    return render(request, "estadisticas.html",{"respuestas": respuestas, "sondeos": sondeos})
+
+def estadisticasTema(request, id_tema=None):
+    respuestas = Respuesta.objects.filter(pregunta = id_tema).count()
+    temas = Tema.objects.get(id = id_tema)
+    return render(request, "estadisticasTema.html",{"respuestas": respuestas, "temas": temas})

@@ -1,0 +1,26 @@
+{% extends 'body.html' %}
+
+{% block title %}Estadisticas{% endblock title %}
+
+{% block content %}
+<div class="mt-2 mb-5"  >
+    <h2  class="mt-2 py-3"  style="background-color:#76323f;color:white">Bienvenido a estadisticas de sondeos</h2>
+    
+    </p>
+    <div class="rounded w-50 m-auto py-5 row" style="background-color: hsl(0, 0%, 100%, 0.8);">
+        <h2 class="text-center">{{sondeos.nombre_s  }}</h2>
+        <div class="col">            
+        <h4 class="text-center">Número de respuestas</strong></h4>
+        <p class="text-center">Se han registrado <strong>{{respuestas}}</strong> respuestas</p>
+        </div>
+        <div class="col">            
+            <h4 class="text-center">Fecha de cierre</h4>
+            <p class="text-center">{{sondeos.fecha_cierre_s}}</p>
+        </div>
+
+        
+    </div>
+    
+</div>   
+<p class="text-center " style="background-color:#76323f;color:white">**Aquí podrá encontrar las estadisticas en tiempo real de los sondeos contestados**</p>
+{% endblock content %}

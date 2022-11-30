@@ -3,40 +3,38 @@
 {% load bootstrap5 %}
 
 {% block usercontent %}
-<h2 class="pt-3">Sondeos contestados</h2>
+<h2 class="mt-2 py-3"  style="background-color:#76323f;color:white">Sondeos contestados</h2>
 <form class="d-flex w-50 m-auto " method="post" action="busqueda/">
     {% csrf_token %}
     <input class="form-control me-sm-2" type="text" name="buscar" placeholder="Buscar sondeos">
-    <button class="btn btn-outline-success my-2" type="submit">Buscar</button>
+    <button class="btn btn-primary" type="submit">Buscar</button>
 </form>
 
 
 <div class="" style="" >
     <div class="row my-4 ">  
     {% if not respuestas %}
-    <h1>Aún no has contestado ningun sondeo</h1>
+    <h2 class="mt-2 py-3"  style="background-color:#76323f;color:white">Aún no has contestado ningun sondeo</h2>
     
     {% else %}
     {% for respuesta in respuestas %}
-        {% if respuesta.sondeo.fecha_publicacion_s <=  fecha_actual and respuesta.sondeo.fecha_cierre_s >= fecha_actual %}
-                <div class="col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-5 d-flex aligns-items-center justify-content-center py-4 px-2">
-                            <img src="{{respuesta.sondeo.imagen.url}}" class="img-fluid h-75 rounded-start " style="max-heigth:50px;" alt="...">
-                          </div>
-                          <div class="col-md-7">
-                            <div class="card-body">
-                              <h3 class="card-title">{{respuesta.sondeo.nombre_s}}</h3>
-                              <p class="card-text">Temática:{{respuesta.sondeo.tematica_s}}</p>
-                              <p class="card-text">{{respuesta.sondeo.descripcion_s}}</p>                      
-                              <p class="card-text"><small class="text-muted">Creado {{respuesta.sondeo.fecha_publicacion_s|naturaltime}}</small></p>
-                              <p>Contestado: {{respuesta.fecha}}</p>
-                            </div>
-                          </div>
+        {% if respuesta.sondeo.fecha_publicacion_s <=  fecha_actual and respuesta.sondeo.fecha_cierre_s >= fecha_actual %}                
+                  <div class="col-6">          
+                    <div class="card px-4">
+                      
+                      <div class="card-body">          
+                        <img src="{{respuesta.sondeo.imagen.url}}" class="img-fluid  rounded-start card-image m-auto" style="max-height:250px;" alt="...">    
+                        <h3 class="card-title">{{respuesta.sondeo.nombre_s}}</h3>
+                        <p class="card-text">Temática: {{respuesta.sondeo.tematica_s}}</p>
+                        <p class="card-text">{{respuesta.sondeo.descripcion_s}}</p>                                    
+                        <p class="card-text">Contestado: {{respuesta.fecha}}</p>
+                        <a class="btn " href="{% url 'generar_certificado' %}" type="submit" style="border: solid 2px #76323f;">Certificado</a>                                                  
+                          <a class="btn btn-primary my-2" href="{% url 'estadisticas' respuesta.sondeo.id %}">Estadisticas</a> 
+                      </div>                      
+                      <div class="mt-2 card-footer text-muted">
+                        Creado {{respuesta.sondeo.fecha_publicacion_s|naturaltime}}</small>
+                      </div>                                                                    
                           
-                          <a class="btn my-sm-0 px-4 me-5" href="{% url 'generar_certificado' %}" type="submit" style="border: solid 2px #76323f;">Certificado</a>                          
-                        </div>
                     </div>
                 </div>  
                 {% endif %}
